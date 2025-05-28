@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, cupcake ;
+  exclude: rootscrollgutter, rootcolor;
+
+}
+
+html {
+  overflow: -moz-scrollbars-none; /* Firefox */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+html::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Gradient color for the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+.rubik{
+  font-family: "Rubik Puddles";
+  font-weight: 600;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  /* font-weight: 400; */
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.abel-regular {
+  font-family: "Abel", sans-serif;
+  /* font-weight: 400; */
+  font-style: normal;
+}
+
+.gradient{
+  
+ 
+
+  background: radial-gradient(at 89.61206880109064% 14.624999364217123%, #c3ba85 0px, transparent 50%), radial-gradient(at 84.8706894907458% 71.49999936421713%, #dad5ab 0px, transparent 50%), radial-gradient(at 8% 36%, #f0f0cb 0px, transparent 50%), radial-gradient(at 40.58189638729753% 52.12499936421712%, #feffe2 0px, transparent 50%), #c3ba85;
+        
+    
+}
+
+.aboutmeBgGirl{
+  background-color: #f2afef;
+background-image: radial-gradient(at 33% 66%, #f2afef 0%, transparent 60%), radial-gradient(at 74% 79%, #c499f3 0%, transparent 50%), radial-gradient(at 31% 85%, #7360df 0%, transparent 40%), radial-gradient(at 42% 57%, #33186b 0%, transparent 30%);
+}
+
+.aboutmeBgBoy{
+  background-color: #b9eddd;
+background-image: radial-gradient(at 3% 13%, #b9eddd 0%, transparent 60%), radial-gradient(at 70% 33%, #87cbb9 0%, transparent 50%), radial-gradient(at 55% 65%, #569daa 0%, transparent 40%), radial-gradient(at 60% 97%, #577d86 0%, transparent 30%);
+}
+
+.aboutmetextBoy{
+  background-image: linear-gradient(to right, #155e75, #15803d, #71717a);
+background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+}
+
+
