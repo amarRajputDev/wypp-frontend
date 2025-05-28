@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 
 
 
-export default function FriendsList({incomingRe , outgoingRe}) {
+export default function FriendsList({incomingRe , outgoingRe} : any) {
 
 
   const [incomingReq, setIncomingReq] = useState(incomingRe);
@@ -62,7 +62,7 @@ export default function FriendsList({incomingRe , outgoingRe}) {
 
   },[nosugg])
 
-  const handleSendRequest = async(_id, seterase)=>{
+  const handleSendRequest = async(_id:string, seterase:any)=>{
 
     try {
       const res = await axios.post(`${import.meta.env.VITE_API_URL}/friends/send` , {senderId:userData?._id , receiverId:_id})
@@ -74,7 +74,7 @@ export default function FriendsList({incomingRe , outgoingRe}) {
         
         setTimeout(()=>{
     
-          setFriendsSuggestion(prev => prev.filter(friend => friend._id !== _id));
+          setFriendsSuggestion(prev => prev.filter((friend:any) => friend._id !== _id));
 
         },400)
       }
@@ -94,36 +94,36 @@ export default function FriendsList({incomingRe , outgoingRe}) {
   
   
 
-  const handleAcceptRequest = async(_id ) => {
+  const handleAcceptRequest = async(_id:string ) => {
     const res = await axios.put(`${import.meta.env.VITE_API_URL}/friends/accept/${_id}`)
     if (res.status === 200) {
-      setIncomingReq(prev => prev.filter(prev => prev._id !== _id))
+      setIncomingReq((prev:any) => prev.filter((prev:any) => prev._id !== _id))
     }
     toast.success(res.data.message)
     
    
   }
 
-  const handleRejectRequest = async(_id) => {
+  const handleRejectRequest = async(_id:string) => {
     const res = await axios.put(`${import.meta.env.VITE_API_URL}/friends/reject/${_id}`)
 
     toast.success(res.data.message)
 
-    setOutgoingReq(prev=>prev.filter(obj=> obj._id !== _id))
+    setOutgoingReq((prev:any)=>prev.filter((obj:any)=> obj._id !== _id))
   }
 
 
 
   //Handle this 👇👇👇👇👇
 
-  const handleRemoveFriend = async (id) => {
+  const handleRemoveFriend = async (id:string) => {
 
     try {
       const res = await axios.delete(`${import.meta.env.VITE_API_URL}/friends/${userData?._id}/friends/${id}`)
       console.log(res.data)
 
       if (res.status === 200) {
-        setFriends(prev => prev.filter((friend) => friend._id !== id))
+        setFriends(prev => prev.filter((friend:any) => friend._id !== id))
         toast.info(res.data.message)
       }
     } catch (error) {
@@ -133,12 +133,12 @@ export default function FriendsList({incomingRe , outgoingRe}) {
   }
 
 
-  const removeMyRequest = async (friendId) =>{
+  const removeMyRequest = async (friendId:string) =>{
     try {
       const res = await axios.delete(`${import.meta.env.VITE_API_URL}/friends/remove/${friendId}` , {withCredentials:true})
       console.log(res.data)
       if (res.status === 200) {
-        setOutgoingReq(prev => prev.filter(prev=> prev._id !== friendId))
+        setOutgoingReq((prev:any) => prev.filter((prev:any)=> prev._id !== friendId))
       }
     } catch (error) {
       console.log(error)
@@ -161,7 +161,7 @@ export default function FriendsList({incomingRe , outgoingRe}) {
             <p className="text-sm text-gray-500">No pending friend requests</p>
           ) : (
             <div className="divide-y ">
-              {incomingReq.map((request) => (
+              {incomingReq.map((request:any) => (
                 <FriendListItem key={request._id} removeMyRequest={removeMyRequest} handleAcceptRequest={handleAcceptRequest} handleRejectRequest={handleRejectRequest} request={request} type={"incoming"} />
               ))}
 
@@ -175,7 +175,7 @@ export default function FriendsList({incomingRe , outgoingRe}) {
             <p className="text-sm text-gray-500">No pending friend requests</p>
           ) : (
             <div className="divide-y ">
-              {outgoingReq.map((request) => (
+              {outgoingReq.map((request:any) => (
                 <FriendListItem key={request._id} removeMyRequest={removeMyRequest} handleAcceptRequest={handleAcceptRequest} handleRejectRequest={handleRejectRequest} request={request}  />
               ))}
 
@@ -205,7 +205,7 @@ export default function FriendsList({incomingRe , outgoingRe}) {
             <p className="text-sm text-gray-500">No friends yet</p>
           ) : (
             <div className="divide-y">
-              {friends.map((friend) => (
+              {friends.map((friend:any) => (
                 // <div key={friend._id} className="py-3  flex items-center justify-between">
                 //   <div className="flex items-center gap-3">
                 //     <div className="avatar online">
@@ -280,7 +280,7 @@ export default function FriendsList({incomingRe , outgoingRe}) {
             <p className="text-sm text-gray-500">No friends yet</p>
           ) : (
             <div className="divide-y">
-              {friendsSuggestion.map((friend) => (
+              {friendsSuggestion.map((friend:any) => (
                
                 <FriendSuggestionItem key={friend._id}  friend={friend} handleSendRequest={handleSendRequest} />
               ))}
@@ -296,7 +296,7 @@ export default function FriendsList({incomingRe , outgoingRe}) {
 
 
 
-function FriendListItem({ request, handleAcceptRequest, handleRejectRequest, removeMyRequest, type = "outgoing" }) {
+function FriendListItem({ request, handleAcceptRequest, handleRejectRequest, removeMyRequest, type = "outgoing" }:any) {
 
   const [erase, seterase] = useState(false)
 
@@ -343,7 +343,7 @@ function FriendListItem({ request, handleAcceptRequest, handleRejectRequest, rem
 }
 
 
-function Friend({friend , handleRemoveFriend} ){
+function Friend({friend , handleRemoveFriend} : any){
 
   const {onlineUsers} =useUserStore()
   const isOnline = onlineUsers?.includes(friend._id)
@@ -407,7 +407,7 @@ function Friend({friend , handleRemoveFriend} ){
 }
 
 
-function FriendSuggestionItem({ friend ,handleSendRequest }) {
+function FriendSuggestionItem({ friend ,handleSendRequest }:any) {
 
   const [erase, seterase] = useState(false)
 
