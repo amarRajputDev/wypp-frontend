@@ -1,6 +1,6 @@
 // import { useEffect } from "react"
 import { useEffect, useState } from "react"
-import NavbarHome from "../../components/NavbarHome"
+// import NavbarHome from "../../components/NavbarHome"
 import PostContainer from "../../components/PostContainer"
 import Sidebar from "../../components/SideBar"
 import { Plus } from "lucide-react"
@@ -15,7 +15,7 @@ const url = import.meta.env.VITE_API_URL
 function Home() {
 
 
-  const {userData , isLogin} = useUserStore()
+  const { isLogin} = useUserStore()
   const navigation = useNavigate()
 
   useEffect(() => {

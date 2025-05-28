@@ -9,7 +9,7 @@ import setting from "../assets/Settings.png";
 import { motion } from "motion/react";
 import { useState } from "react";
 import SearchUser from "./SearchUser";
-import { Search } from "lucide-react";
+// import { Search } from "lucide-react";
 
 function NavbarHome() {
     const [index, setIndex] = useState(0)

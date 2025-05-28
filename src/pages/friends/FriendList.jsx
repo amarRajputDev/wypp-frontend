@@ -1,4 +1,3 @@
-"use client"
 
 import { useEffect, useState } from "react"
 import { Search, UserPlus, Check, X, UserMinus } from "lucide-react"
@@ -9,25 +8,13 @@ import useUserStore from "../../store/authStore"
 import { useNavigate } from "react-router-dom"
 
 
-interface User {
-  _id:string,
-  username:string,
-  profilePic:string
-}
 
-interface Request {
-  createdAt:string,
-  receiver:User,
-  sender:string,
-  _id:string
-}
-
-export default function FriendsList({incomingRe , outgoingRe}:{incomingRe:Request[] | [] , outgoingRe:Request[] | []}) {
+export default function FriendsList({incomingRe , outgoingRe}) {
 
 
-  const [incomingReq, setIncomingReq] = useState<Request[]>(incomingRe);
-  const [outgoingReq, setOutgoingReq] = useState<Request[]>(outgoingRe);
-  const [friendsSuggestion, setFriendsSuggestion] = useState<User[] | []>([])
+  const [incomingReq, setIncomingReq] = useState(incomingRe);
+  const [outgoingReq, setOutgoingReq] = useState(outgoingRe);
+  const [friendsSuggestion, setFriendsSuggestion] = useState([])
   const [nosugg, setnosugg] = useState(1)
   const [friends, setFriends] = useState([]);
   const {userData } =useUserStore()
@@ -75,7 +62,7 @@ export default function FriendsList({incomingRe , outgoingRe}:{incomingRe:Reques
 
   },[nosugg])
 
-  const handleSendRequest = async(_id:string , seterase)=>{
+  const handleSendRequest = async(_id, seterase)=>{
 
     try {
       const res = await axios.post(`${import.meta.env.VITE_API_URL}/friends/send` , {senderId:userData?._id , receiverId:_id})
@@ -107,7 +94,7 @@ export default function FriendsList({incomingRe , outgoingRe}:{incomingRe:Reques
   
   
 
-  const handleAcceptRequest = async(_id:string , type:string) => {
+  const handleAcceptRequest = async(_id ) => {
     const res = await axios.put(`${import.meta.env.VITE_API_URL}/friends/accept/${_id}`)
     if (res.status === 200) {
       setIncomingReq(prev => prev.filter(prev => prev._id !== _id))
@@ -117,7 +104,7 @@ export default function FriendsList({incomingRe , outgoingRe}:{incomingRe:Reques
    
   }
 
-  const handleRejectRequest = async(_id:string) => {
+  const handleRejectRequest = async(_id) => {
     const res = await axios.put(`${import.meta.env.VITE_API_URL}/friends/reject/${_id}`)
 
     toast.success(res.data.message)
@@ -129,14 +116,14 @@ export default function FriendsList({incomingRe , outgoingRe}:{incomingRe:Reques
 
   //Handle this 👇👇👇👇👇
 
-  const handleRemoveFriend = async (id:string) => {
+  const handleRemoveFriend = async (id) => {
 
     try {
       const res = await axios.delete(`${import.meta.env.VITE_API_URL}/friends/${userData?._id}/friends/${id}`)
       console.log(res.data)
 
       if (res.status === 200) {
-        setFriends(prev => prev.filter((friend:any) => friend._id !== id))
+        setFriends(prev => prev.filter((friend) => friend._id !== id))
         toast.info(res.data.message)
       }
     } catch (error) {
@@ -146,7 +133,7 @@ export default function FriendsList({incomingRe , outgoingRe}:{incomingRe:Reques
   }
 
 
-  const removeMyRequest = async (friendId:string) =>{
+  const removeMyRequest = async (friendId) =>{
     try {
       const res = await axios.delete(`${import.meta.env.VITE_API_URL}/friends/remove/${friendId}` , {withCredentials:true})
       console.log(res.data)
@@ -356,7 +343,7 @@ function FriendListItem({ request, handleAcceptRequest, handleRejectRequest, rem
 }
 
 
-function Friend({friend , handleRemoveFriend} : {friend:any ,handleRemoveFriend:any}){
+function Friend({friend , handleRemoveFriend} ){
 
   const {onlineUsers} =useUserStore()
   const isOnline = onlineUsers?.includes(friend._id)
@@ -420,7 +407,7 @@ function Friend({friend , handleRemoveFriend} : {friend:any ,handleRemoveFriend:
 }
 
 
-function FriendSuggestionItem({ friend ,handleSendRequest } : {friend : User}) {
+function FriendSuggestionItem({ friend ,handleSendRequest }) {
 
   const [erase, seterase] = useState(false)
 

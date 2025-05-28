@@ -67,7 +67,7 @@ function PostContainer() {
             Posts.map((item)=>(
               item &&
 
-                <PostCard key={item._id} title={item.title} description={item.content} image={item.image} tags={item.tags} profileImage={item.user.profilePic} author={item.user?.username} likes={item.likes.length || 0} comments={item.comments.length || 0} shares={item.shares || 0} />
+                <PostCard key={item._id} title={item.title} description={item.content} image={item.image} tags={item.tags} profileImage={item.user.profilePic} author={item.user?.username} likes={item.likes.length || 0} comments={item.comments.length || 0} shares={ 0} />
               
             ))
 

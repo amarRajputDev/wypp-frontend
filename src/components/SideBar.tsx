@@ -1,10 +1,10 @@
 // import { motion } from "framer-motion";
 // import { Link } from "react-router-dom";
 import homeIcon from "../assets/Home.png";
-import chatIcon from "../assets/Earth Globe.png";
+// import chatIcon from "../assets/Earth Globe.png";
 import setting from "../assets/Settings.png";
 import thoughtIcon from "../assets/Thinking Male.png";
-import sthoughtIcon from "../assets/Spy.png";
+// import sthoughtIcon from "../assets/Spy.png";
 import { Link, useLocation } from "react-router-dom";
 // import MobileNav from "./MobileNav";
 

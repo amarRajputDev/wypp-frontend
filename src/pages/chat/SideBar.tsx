@@ -20,23 +20,25 @@ interface Chat {
   conversationId: string;
 }
 
-const pinnedChats: Chat[] = [
-  {
-    _id: "1",
-    fullName: "Kailey",
-    username: "kailey",
-    profilePic: "/placeholder.svg?height=40&width=40",
-    lastMessage: {
-      _id: "1",
-      message: "Say My Name",
-      senderId: "1",
-      createdAt: "9:36",
-    },
-    online: true,
-    unread: 0,
-    conversationId: "312",
-  },
-];
+//Pinned Chats Feature (Not implemented)
+
+// const pinnedChats: Chat[] = [
+//   {
+//     _id: "1",
+//     fullName: "Kailey",
+//     username: "kailey",
+//     profilePic: "/placeholder.svg?height=40&width=40",
+//     lastMessage: {
+//       _id: "1",
+//       message: "Say My Name",
+//       senderId: "1",
+//       createdAt: "9:36",
+//     },
+//     online: true,
+//     unread: 0,
+//     conversationId: "312",
+//   },
+// ];
 
 interface ChatSidebarProps {
   onChatSelect: (chatId: string) => void;
@@ -47,6 +49,7 @@ export default function ChatSidebar({ onChatSelect, selectedChatId }: ChatSideba
   const [searchQuery, setSearchQuery] = useState("");
   const [allChats, setAllChats] = useState<Chat[]>([]);
   const [socket, setSocket] = useState<Socket | null>(null);
+  console.log(socket) //only to remove warningc
 
   useEffect(() => {
     const fetchContacts = async () => {

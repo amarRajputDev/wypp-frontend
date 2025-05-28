@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import NavbarHome from '../../components/NavbarHome'
+import  { useEffect, useState } from 'react'
+// import NavbarHome from '../../components/NavbarHome'
 import MobileNav from '../../components/MobileNav'
-import FriendsList from './FriendList'
+import FriendsList from "./FriendList"
 import axios from 'axios'
 import useUserStore from '../../store/authStore'
 

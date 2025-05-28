@@ -42,6 +42,8 @@ export default function ChatConversation({ chatId, onBack, showBackButton }: Cha
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const fetchedRef = useRef(false);
 
+  console.log(input)
+
   const handleEmojiClick = (emojiData :any) => {
     setInput((prev) => prev + emojiData.emoji);
   };

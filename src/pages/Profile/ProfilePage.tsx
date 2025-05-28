@@ -1,11 +1,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import {
-  Music,
-  Code,
-  Camera,
-  Coffee,
-  Gamepad2,
+
   Moon,
   Sun,
   Sparkles,

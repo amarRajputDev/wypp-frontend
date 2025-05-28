@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, } from 'react-router-dom'
 import './App.css'
 import HomePage from './pages/homePage/HomePage'
 import About from './pages/About';
@@ -8,7 +8,7 @@ import Home from './pages/Home/Home';
 import Login from './pages/Auth/Login';
 import { ToastContainer, Zoom } from 'react-toastify';
 import { useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import useUserStore from './store/authStore';
 import ProfilePage from './pages/Profile/ProfilePage';
 import ChatPage from './pages/chat/Chat';
@@ -110,11 +110,11 @@ function App() {
 
   // const navigate = useNavigate()
 
-  const {setUser,userData,setOnlineUsers } = useUserStore()
+  const {userData,setOnlineUsers } = useUserStore()
   // const [socket, setsocket] = useState<Socket | null>(null)
   const {setSocket , Socket} = useSocketStore()
   
-  const apiUrl = import.meta.env.VITE_API_URL
+  // const apiUrl = import.meta.env.VITE_API_URL
   // const fetchUser = async () => {
   //   try {
   //     const res = await axios.get(`${apiUrl}/user/getuser`, { withCredentials: true });

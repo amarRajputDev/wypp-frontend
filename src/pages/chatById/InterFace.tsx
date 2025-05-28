@@ -1,7 +1,7 @@
 
 
 import { useState, useRef, useEffect } from "react"
-import { useMobile } from "../../hooks/use-mobile"
+// import { useMobile } from "../../hooks/use-mobile"
 import { useMessagesStore } from "../../store/messagesStore"
 import axios from "axios"
 import useUserStore from "../../store/authStore"
@@ -17,16 +17,16 @@ type User = {
 //   status?: "online" | "offline" | "away"
 }
 
-type Message = {
-    createdAt: Date;
-    message: string;
-    senderId: string;
-    _id: string;
-}
+// type Message = {
+//     createdAt: Date;
+//     message: string;
+//     senderId: string;
+//     _id: string;
+// }
 
-interface ChatInterfaceProps {
-  receiver: User
-}
+// interface ChatInterfaceProps {
+//   receiver: User
+// }
 
 export default function ChatInterface({ conversationId }: {conversationId:string}) {
     useGetRealTimeMsg()
@@ -34,12 +34,12 @@ export default function ChatInterface({ conversationId }: {conversationId:string
 //   const [inputValue, setInputValue] = useState("")
   const [newMessage, setnewMessage] = useState("")
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const isMobile = useMobile()
+  // const isMobile = useMobile()
 //   const {addMessage} =useMessagesStore()
   const {userData ,onlineUsers} =useUserStore()
   const [receiver, setReceiver] = useState<User | null>(null)
   const [sender, setSender] = useState<User | null>(null)
-  const {addMessage,clearMessages ,messages } =useMessagesStore()
+  const {addMessage ,messages } =useMessagesStore()
 
   const isOnline = onlineUsers?.includes(receiver?._id!);
 
@@ -69,7 +69,7 @@ export default function ChatInterface({ conversationId }: {conversationId:string
         setReceiver(receiver);
   
         // ✅ Add only new messages
-        fetchedMessages.forEach((msg: Message) => {
+        fetchedMessages.forEach((msg: any) => {
           if (!messages.some((m) => m._id === msg._id)) {
             addMessage(msg);
           }
@@ -116,16 +116,16 @@ export default function ChatInterface({ conversationId }: {conversationId:string
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
   }
 
-  const getStatusColor = (status?: string) => {
-    switch (status) {
-      case "online":
-        return "bg-success"
-      case "away":
-        return "bg-warning"
-      default:
-        return "bg-gray-400"
-    }
-  }
+  // const getStatusColor = (status?: string) => {
+  //   switch (status) {
+  //     case "online":
+  //       return "bg-success"
+  //     case "away":
+  //       return "bg-warning"
+  //     default:
+  //       return "bg-gray-400"
+  //   }
+  // }
 
   return (
     <>
