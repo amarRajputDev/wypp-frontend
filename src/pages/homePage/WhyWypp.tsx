@@ -38,8 +38,8 @@ function WhyWypp() {
         </div>
         <div className="flex flex-wrap justify-center gap-4">
         {
-            data.map((item)=>(
-                <div className="collapse collapse-arrow bg-base-200">
+            data.map((item , index)=>(
+                <div key={index} className="collapse collapse-arrow bg-base-200">
                 <input type="radio" name="my-accordion-2" defaultChecked />
                 <div className="collapse-title text-xl font-medium">{item.title}</div>
                 <div className="collapse-content">
