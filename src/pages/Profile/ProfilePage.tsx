@@ -142,7 +142,7 @@ export default function ProfilePage() {
   return (
     <div
       ref={containerRef}
-      className={`min-h-screen transition-colors duration-500 ${
+      className={`min-h-screen w-screen transition-colors duration-500 ${
         isDarkMode
           ? "bg-gradient-to-br from-zinc-900 via-purple-950 to-zinc-900 text-white"
           : "bg-gradient-to-br from-lavender-50 via-cyber-blue-50 to-mint-green-50 text-zinc-800"
@@ -178,7 +178,7 @@ export default function ProfilePage() {
         {/* Header with blob background */}
         <div className="relative mb-16 mt-10">
           <div
-            className={`absolute -top-10 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full ${
+            className={`absolute  -top-10 left-1/2 -translate-x-1/2 md:w-[600px] md:h-[600px] size-[300px] rounded-full ${
               isDarkMode
                 ? "bg-gradient-to-r from-pink-500 via-purple-500 to-cyber-blue opacity-20"
                 : "bg-gradient-to-r from-peach-300 via-lavender-300 to-mint-green-300 opacity-30"
@@ -676,7 +676,7 @@ function Setting() {
     {/* Modal */}
     {isOpen && (
       <div className="fixed inset-0 flex items-center justify-center z-20 bg-black/30 backdrop-blur-2xl  bg-opacity-50">
-        <div className="bg-[#20182D] p-6 rounded-lg shadow-lg w-96">
+        <div className="bg-[#20182D] p-6 rounded-lg shadow-lg w-full md:w-[500px]">
           <h3 className="text-xl font-bold mb-4">Edit Profile</h3>
 
           {/* Change Bio */}
@@ -713,7 +713,7 @@ function Setting() {
           />
 
           {/* Buttons */}
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-2">
             <button 
             onClick={handleUpdate}
             className="px-4 py-2 bg-green-500 flex gap-2 text-white rounded-md">
@@ -726,13 +726,13 @@ function Setting() {
               
             </button>
             <button
-              className="px-4 py-2 bg-red-500 text-white rounded-md"
+              className="px-4 py-1 bg-red-500 text-white rounded-md"
               onClick={handleLogout}
             >
               Logout
             </button>
             <button
-              className="px-4 py-2 bg-gray-400 text-white rounded-md"
+              className="px-4 py-1 bg-gray-400 text-white rounded-md"
               onClick={() => setIsOpen(false)}
             >
               Close

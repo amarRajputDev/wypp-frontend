@@ -8,7 +8,7 @@ import setting from "../assets/Settings.png";
 // import { Search } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
-import SearchUser from "./SearchUser";
+// import SearchUser from "./SearchUser";
 // import { Search } from "lucide-react";
 
 function NavbarHome() {
@@ -78,7 +78,7 @@ function NavbarHome() {
   </div>
   <div className="  flex-1 px-10">
 
-  <SearchUser/>
+  {/* <SearchUser/> */}
   </div>
   <Link to={"/home/profile"} className="flex-none">
     <img src={profile} alt="" className=" h-10 " />
@@ -116,7 +116,11 @@ function NavbarHome() {
         transition={{duration:.5 , delay:.4}}
         >
             <Link to={"/home/announcement"} className={` text-4xl  ${location.pathname === "/home/announcement" ? "border-b-2 text-primary-content" : "text-neutral-content"}`}>Announcement</Link>
+
+
         </motion.li>
+
+
        
     </ul>
 

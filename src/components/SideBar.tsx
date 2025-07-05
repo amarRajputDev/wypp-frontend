@@ -6,6 +6,7 @@ import setting from "../assets/Settings.png";
 import thoughtIcon from "../assets/Thinking Male.png";
 // import sthoughtIcon from "../assets/Spy.png";
 import { Link, useLocation } from "react-router-dom";
+import SearchUser from "./SearchUser";
 // import MobileNav from "./MobileNav";
 
 
@@ -33,6 +34,9 @@ const Sidebar = () => {
                 <img src={thoughtIcon} alt="" className=" h-10 " />
                 Announcement
               </Link>
+            </li>
+            <li>
+              
             </li>
             {/* <li className= {`rounded-full px-3 py-1 hover:bg-[#EDE9D5] hover:border-[#D4CBB8] duration-300 ${location.pathname == "/home/wypespace" ? "bg-[#EDE9D5] border-[#D4CBB8]" : "" }`}>
               <Link to={"/home/wypespace"} className="flex items-center gap-3 font-semibold roboto-regular">

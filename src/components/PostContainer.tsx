@@ -54,7 +54,7 @@ function PostContainer() {
     <div className=" ">
          <div className="w-full  h-[90vh] bg-accent  rounded-lg  overflow-y-auto scrollbar-thin scrollbar-thumb-[#B95B45] scrollbar-track-[#F7F5EB]">
         <StoriesContainer/>
-        <div className=" w-full flex flex-col items-center gap-2 mt-2">
+        <div className=" w-full flex flex-col items-center gap-2 p-2 mt-2">
 
         {
           isLoading?
@@ -67,7 +67,7 @@ function PostContainer() {
             Posts.map((item)=>(
               item &&
 
-                <PostCard key={item._id} title={item.title} description={item.content} image={item.image} tags={item.tags} profileImage={item.user.profilePic} author={item.user?.username} likes={item.likes.length || 0} comments={item.comments.length || 0} shares={ 0} />
+                <PostCard key={item._id} id={item._id} title={item.title} description={item.content} image={item.image} tags={item.tags} profileImage={item.user.profilePic} author={item.user?.username} likes={item.likes} comments={item.comments.length || 0} shares={ 0} />
               
             ))
 

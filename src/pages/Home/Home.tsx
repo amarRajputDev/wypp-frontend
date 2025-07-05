@@ -9,6 +9,7 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import useUserStore from "../../store/authStore"
 import { useNavigate } from "react-router-dom"
+import SearchUser from "../../components/SearchUser"
 
 
 const url = import.meta.env.VITE_API_URL
@@ -27,6 +28,7 @@ function Home() {
 
   return (
     <>
+    <SearchUser/>
     <UploadPostModal/>
       {/* <NavbarHome/> */}
     <div className=" flex bg-[#F7F5EB] overflow-hidden">
@@ -100,7 +102,7 @@ function UploadPostModal() {
   return (
     <div className={`flex fixed   z-10 justify-center items-center ${isOpen ? "backdrop-blur-2xl h-screen w-screen" : ""} duration-300 `}>
       {/* Button to open modal */}
-      <div onClick={() => setIsOpen(true)} className="bg-blue-500 fixed text-white px-4 py-2 rounded-full bottom-24 right-5">
+      <div onClick={() => setIsOpen(true)} className="bg-blue-500  cursor-pointer fixed text-white px-4 py-2 rounded-full bottom-24 right-5">
         <Plus />
       </div>
 

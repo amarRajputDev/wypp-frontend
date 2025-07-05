@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, } from 'react-router-dom'
+import { createHashRouter, RouterProvider, } from 'react-router-dom'
 import './App.css'
 import HomePage from './pages/homePage/HomePage'
 import About from './pages/About';
@@ -21,9 +21,10 @@ import FriendsPage from './pages/friends/FriendsPage';
 import NavbarHome from './components/NavbarHome';
 import MobileNav from './components/MobileNav';
 import Announcement from './pages/announcement/Announcement';
+
 // import LendingPage from './pages/homePage/LendingPage'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   { path: "/", element: <HomePage /> },
   { path: "/about", element: <About /> },
   { path: "/contact", element: <Contact /> },
@@ -33,8 +34,8 @@ const router = createBrowserRouter([
   <ProtectedRoute>
     <NavbarHome/>
     <MobileNav/>
-
     <Home />
+    
   </ProtectedRoute>
 ) },
   { path: "/home/profile", element:(
