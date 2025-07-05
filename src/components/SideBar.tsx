@@ -6,7 +6,7 @@ import setting from "../assets/Settings.png";
 import thoughtIcon from "../assets/Thinking Male.png";
 // import sthoughtIcon from "../assets/Spy.png";
 import { Link, useLocation } from "react-router-dom";
-import SearchUser from "./SearchUser";
+
 // import MobileNav from "./MobileNav";
 
 

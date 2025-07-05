@@ -244,7 +244,7 @@ function Signup() {
     if (validateStep3()) {
       try {
         const res = await axios.post(
-          "http://localhost:8080/api/user/signup",
+          `${apiUrl}/auth/signup`,
           formData,
           {
             headers: {

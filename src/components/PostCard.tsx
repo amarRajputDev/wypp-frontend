@@ -66,7 +66,7 @@ const PostCard: React.FC<Post> = ({
 
   // Toggle Comment Box
   const toggleCommentBox = () => {
-    setShowCommentBox(!showCommentBox);
+   
     const fetchComments = async () => {
       try {
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/uploads/getComment/${id}`, { withCredentials: true });
@@ -87,6 +87,7 @@ const PostCard: React.FC<Post> = ({
     if (!showCommentBox) {
       fetchComments(); // Fetch comments only when opening the comment box  
     }
+     setShowCommentBox(!showCommentBox);
   };
 
   const addComment = async () => {
